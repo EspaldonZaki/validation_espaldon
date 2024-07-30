@@ -27,6 +27,8 @@ class UserTaskController extends Controller
 
         ]);
 
+        $task
+
         return back()->with('success', 'Data saved successfully');
     }
 

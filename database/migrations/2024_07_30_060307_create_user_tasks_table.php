@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('user_tasks', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
-            $table->string('task_name');
+            $table->string('task_name')->nullable();
             $table->enum('status', ['Pending, One process', 'Complete', 'Cancelled'])->nullable();
             $table->text('description')->nullable();
             $table->date('published')->nullable();
