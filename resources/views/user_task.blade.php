@@ -10,7 +10,7 @@
         @csrf
         <div>
             <label for="task_name">Task Name:</label>
-            <input type="text" id="name" name="task_name" value="{{ 'old (task_name)' }}">
+            <input type="text" id="name" name="task_name" value="{{ old ('task_name') }}">
             @error('task_name')
             <div>{{$message}}</div>
             @enderror
@@ -36,7 +36,7 @@
         </div>
         <div>
             <label for="deadline">Deadline</label>
-            <input type="text" id="deadline" name="deadline" value="{{ 'old (deadline)' }}">
+            <input type="date" id="deadline" name="deadline" value="{{ old ('deadline') }}">
             @error('deadline')
             <div>{{$message}}</div>
             @enderror
@@ -47,5 +47,6 @@
     </form>
     @if(session('success'))
     <div>{{session ('success')}}</div> 
+    @endif
 </body>
 </html>
