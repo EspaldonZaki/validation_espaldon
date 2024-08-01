@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\UserTask;
+use App\Providers\Paginator;
 
 class UserTaskController extends Controller
 {
     public function index()
     {
+      // $data ['tasks'] = UserTask::all();
+      // return view('index', $data);
 
+      $data ['tasks'] = $task = UserTask::paginate(10);
+      return view('index', $data);
     }
 
     public function create()
@@ -26,6 +31,10 @@ class UserTaskController extends Controller
             'deadline' => 'required'
 
         ]);
+
+       
+
+        return redirect()->to('user_task.index');
 
         return back()->with('success', 'Data saved successfully');
     }
